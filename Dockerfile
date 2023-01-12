@@ -1,5 +1,4 @@
 FROM docker.io/adoptopenjdk/openjdk8 AS build
-RUN echo $(id)
 COPY --chown=1001:0 . /app
 USER 1001
 WORKDIR /app/src
