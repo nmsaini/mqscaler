@@ -64,7 +64,7 @@ public class MetricsServer {
         	try {
 				for (String qmetrics : _qmgr.getCurrentDepth(q)) {
 				
-					response += "ibmmq_" + qmetrics.replace('.','_').toLowerCase() + NEWLINE;
+					response += "ibmmq_qdepth_" + qmetrics.replace('.','_').toLowerCase() + NEWLINE;
 				}
 			} catch (MQException e) {
 				e.printStackTrace();
