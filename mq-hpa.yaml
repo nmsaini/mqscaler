@@ -6,11 +6,11 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: backend
+    name: deploymentname
   minReplicas: 1
   maxReplicas: 5
   metrics:
   - type: Pods
     pods:
-      metricName: messages
+      metricName: ibmmq_qdepth_queuename
       targetAverageValue: 10
