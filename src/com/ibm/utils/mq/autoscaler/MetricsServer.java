@@ -67,6 +67,7 @@ public class MetricsServer {
         			response += "# HELP ibmmq_qdepth_" + q[i] + " shows current queue depth" + NEWLINE;
         			response += "# TYPE ibmmq_qdepth_" + q[i] + " gauge" + NEWLINE;
         			response += "ibmmq_qdepth_" + qmetrics[i] + NEWLINE;
+				}
 			} catch (MQException e) {
 				e.printStackTrace();
 			}
