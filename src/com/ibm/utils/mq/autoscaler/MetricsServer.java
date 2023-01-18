@@ -64,9 +64,9 @@ public class MetricsServer {
         	try {
         		String [] qmetrics = _qmgr.getCurrentDepth(q);
         		for(int i=0; i < qmetrics.length; i++) {
-        			response += "# HELP ibmmq_qdepth_" + q[i].trim() + " shows current queue depth" + NEWLINE;
-        			response += "# TYPE ibmmq_qdepth_" + q[i].trim() + " gauge" + NEWLINE;
-        			response += "ibmmq_qdepth_" + qmetrics[i] + NEWLINE;
+        			response += "# HELP ibmmq_qdepth_" + q[i].trim().replace('.','_') + " shows current queue depth" + NEWLINE;
+        			response += "# TYPE ibmmq_qdepth_" + q[i].trim().replace('.','_') + " gauge" + NEWLINE;
+        			response += "ibmmq_qdepth_" + qmetrics[i].replace('.','_') + NEWLINE;
 				}
 			} catch (MQException e) {
 				e.printStackTrace();
