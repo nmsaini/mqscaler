@@ -63,8 +63,11 @@ public class MetricsServer {
     		
         	try {
 				for (String qmetrics : _qmgr.getCurrentDepth(q)) {
-				
-					response += "ibmmq_qdepth_" + qmetrics.replace('.','_').toLowerCase() + NEWLINE;
+					// change queueName to lower_case
+					String metricName = "ibmmq_qdepth_" +qmetrics.replace('.','_');
+					response += "# HELP "+ metricName + " shows the current queue depth"+NEWLINE;	// HELP
+					response += "# TYPE "+ metricName + " gauge"+NEWLINE;	// TYPE					
+					response += metricName + NEWLINE;
 				}
 			} catch (MQException e) {
 				e.printStackTrace();
